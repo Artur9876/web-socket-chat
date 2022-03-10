@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+<script src="p5.min.js"></script>
+<script src="style.css"></script>
+<script src="jquery.js"></script>
+<script src="app.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+  </head>
+
+  <body style="font-size: xx-large;">
+    
+    <textarea style="height:120px;width:120px" type="text" id="text"></textarea>
+      <button id="button" onclick="getInputValue();">SEND</button>
+      
+      <script>
+        
+        document.getElementById("text")
+            .addEventListener("keyup", function(e) {
+              if (e.key !== 'Enter') socket.emit('typing');  
+              if (e.key === 'Enter') {
+                    document.getElementById("button").click();
+                    document.querySelector("#a").scrollTop = document.querySelector("#a").scrollHeight;
+                }
+              }
+
+              
+              
+            );
+        document.getElementById("text")
+        .addEventListener("keydown", function(e) {
+          if (e.key !== 'Enter') socket.emit('typing');  
+          
+                
+            
+          }
+
+          
+          
+        );
+        
+        
+      </script>
+    <div id="canvasForHTML"></div>  
+    <div id="a" style="height:400px;
+    overflow:auto">
+      <div id="b">
+        <table>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  
+  </body>
+  
+</html>
